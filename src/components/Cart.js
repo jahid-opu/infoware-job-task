@@ -94,6 +94,7 @@ const Cart = () => {
           {!submittedCoupon && (
             <>
               <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
+                <p>Use less15 for 15% or less10 for 10% discount</p>
                 <input
                   className="px-3 py-2 my-1 border-b border-teal-300 placeholder-gray-500 text-blueGray-600 relative tracking-wide rounded-full bg-white text-base shadow outline-none focus:outline-none focus:shadow-outline "
                   placeholder="Coupon Code..."
