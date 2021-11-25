@@ -4,7 +4,6 @@ import { items } from "./fakeData";
 const Items = () => {
   const [cartData, setCartData] = useContext(CartContext);
   const handleBuy = (singleItem) => {
-    console.log(singleItem.id);
     let isAdded = false;
     if (cartData.length === 0) {
       singleItem = { ...singleItem, quantity: 1 };
@@ -23,9 +22,9 @@ const Items = () => {
 
   return (
     <div>
-      <h3>Items...</h3>
-      {items.map((item, index) => (
-        <div key={index} className="flex justify-around py-5 border-b">
+      <h3>Recommended</h3>
+      {items.map((item) => (
+        <div key={item.id} className="flex justify-around py-5 border-b">
           <div className="w-2/3">
             <h3 className="font-bold">{item.name}</h3>
             <h5 className="font-medium my-3">$ {item.price}</h5>

@@ -15,7 +15,7 @@ const CartItem = ({ item, handlePlusMinus, deleteItem }) => {
     }
   };
   return (
-    <div className="bg-white shadow-lg border mr-3 px-3 py-4 md:p-2">
+    <div className="bg-white border-b mr-3 px-3 py-4 md:p-2">
       <div className="grid grid-cols-4">
         <div>
           <h4>{item.name}</h4>
@@ -31,8 +31,9 @@ const CartItem = ({ item, handlePlusMinus, deleteItem }) => {
                 className="mx-2 text-center w-4 font-medium text-gray-800"
                 type="text"
                 value={quantity}
+                readOnly
               />
-              <button onClick={() => minus(item.id)} className="md:ml-4">
+              <button onClick={() => minus(item.id)} className="lg:ml-4">
                 <FaMinus
                   className="cursor-pointer"
                   size=".8rem"

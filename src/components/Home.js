@@ -5,16 +5,16 @@ import LeftBar from "./LeftBar";
 
 const Home = () => {
   return (
-    <div className="md:grid grid-cols-10">
-      <div className="p-5 relative col-span-3 bg-gray-500">
+    <div className="md:grid grid-cols-12">
+      <div className="p-5 relative col-span-3">
         <LeftBar />
       </div>
 
-      <div className="p-5 col-span-4">
+      <div className="p-5 md:border-r md:border-l col-span-5">
         <Items />
       </div>
 
-      <div className="p-5 relative col-span-3 ">
+      <div className="p-5 relative col-span-4 ">
         <Cart />
       </div>
     </div>

@@ -3,7 +3,7 @@ import React from "react";
 const LeftBar = () => {
   return (
     <div className="md:fixed">
-      <ul>
+      <ul className="md:ml-5 lg:ml-24">
         <li>Recommended</li>
         <li>Pizza</li>
         <li>Appetizers/ Starters</li>

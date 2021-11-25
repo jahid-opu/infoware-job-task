@@ -8,16 +8,14 @@ const Cart = () => {
   const [items, setItems] = useState(cartData);
   const [itemQty, setItemQty] = useState(0);
 
-  console.log(cartData.length);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isCartEmpty, setIsCartEmpty] = useState(false);
+  const [submittedCoupon, setSubmittedCoupon] = useState(false);
 
   useEffect(() => {
     setItems(cartData);
     setIsCartEmpty(false);
     sumOfPrice();
-
-    console.log(totalPrice);
   }, [cartData]);
 
   //  Item price calculation
@@ -71,12 +69,15 @@ const Cart = () => {
       let price = totalPrice - totalPrice * 0.15;
       setTotalPrice(Math.round(price));
     }
+    setSubmittedCoupon(true);
   };
 
   return (
     <div className="md:fixed">
-      <h3>Cart</h3>
-      <h3>Items({itemQty})</h3>
+      <h2 className="text-2xl font-medium  text-gray-800">Cart</h2>
+      <h3 className="mb-5 text-sm font-semibold  text-gray-800">
+        Items ({itemQty})
+      </h3>
       {!isCartEmpty && (
         <>
           {items.map((item) => (
@@ -91,18 +92,35 @@ const Cart = () => {
             <span>Subtotal:</span>
             <span className="mr-5">$ {totalPrice}</span>{" "}
           </div>
-          <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
-            <input
-              className="px-3 py-2 my-1 border-b border-teal-300 placeholder-gray-500 text-blueGray-600 relative tracking-wide rounded-lg bg-white text-base shadow outline-none focus:outline-none focus:shadow-outline "
-              placeholder="Coupon Code"
-              {...register("coupon", { required: false })}
-            />
-            <input
-              className="ml-2 p-2 rounded bg-indigo-900 font-semibold text-gray-200 uppercase cursor-pointer"
-              value="Apply Coupon"
-              type="submit"
-            />
-          </form>
+          {!submittedCoupon && (
+            <>
+              <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
+                <input
+                  className="px-3 py-2 my-1 border-b border-teal-300 placeholder-gray-500 text-blueGray-600 relative tracking-wide rounded-full bg-white text-base shadow outline-none focus:outline-none focus:shadow-outline "
+                  placeholder="Coupon Code..."
+                  {...register("coupon", { required: false })}
+                />
+
+                <input
+                  className="ml-2 p-2 rounded-full bg-indigo-900 hover:bg-indigo-700 font-semibold text-gray-200 uppercase cursor-pointer"
+                  value="Apply Coupon"
+                  type="submit"
+                />
+                <br />
+              </form>
+            </>
+          )}
+          {submittedCoupon && (
+            <div>
+              <p style={{ color: "green" }}>Coupon applied successfully</p>
+            </div>
+          )}
+          <input
+            className="mr-3 mt-8 p-4  rounded-full bg-indigo-900 hover:bg-indigo-700 font-semibold w-full text-gray-200 uppercase cursor-pointer"
+            value="CHECKOUT"
+            type="submit"
+          />
+          <br />
         </>
       )}
     </div>
