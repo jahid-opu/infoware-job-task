@@ -39,7 +39,7 @@ const Items = () => {
             />
             <button
               onClick={() => handleBuy(item)}
-              className="absolute -mt-5 ml-5 bg-blue-500 hover:bg-blue-700 text-sm text-white py-1 px-2 rounded"
+              className="absolute -mt-5 ml-5 bg-indigo-900 hover:bg-indigo-700 text-sm text-white py-1 px-2 rounded"
             >
               Add to Cart
             </button>

@@ -15,7 +15,7 @@ const CartItem = ({ item, handlePlusMinus, deleteItem }) => {
     }
   };
   return (
-    <div className="bg-white shadow-lg border px-3 py-4 md:p-2">
+    <div className="bg-white shadow-lg border mr-3 px-3 py-4 md:p-2">
       <div className="grid grid-cols-4">
         <div>
           <h4>{item.name}</h4>

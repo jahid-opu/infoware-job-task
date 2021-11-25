@@ -14,7 +14,7 @@ const Home = () => {
         <Items />
       </div>
 
-      <div className="p-5 relative col-span-3 bg-yellow-500">
+      <div className="p-5 relative col-span-3 ">
         <Cart />
       </div>
     </div>
