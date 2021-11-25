@@ -61,7 +61,6 @@ const Cart = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = ({ coupon }) => {
-    console.log(coupon);
     if (coupon === "less10") {
       let price = totalPrice - totalPrice * 0.1;
       setTotalPrice(Math.round(price));
