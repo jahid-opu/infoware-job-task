@@ -38,20 +38,9 @@ const Cart = () => {
       if (id === item.id) {
         newCart = { ...item, quantity: quantity };
         cartData[index] = newCart;
+        sumOfPrice();
       }
     });
-    // let newData = cartData.filter((item) => item.id != id);
-    // newData = [...newData, newCart];
-    // for (let i = 0; i < newData.length - 1; i++) {
-    //   for (let j = i + 1; j < newData.length; j++) {
-    //     if (newData[j].id < newData[i].id) {
-    //       let temp = newData[i];
-    //       newData[i] = newData[j];
-    //       newData[j] = temp;
-    //     }
-    //   }
-    // }
-    // setCartData(newData);
   };
 
   // Delete items from cart
